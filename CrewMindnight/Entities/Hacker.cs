@@ -5,7 +5,7 @@ namespace CrewMindnight.Entities
     public class Hacker : Player, IPlayerAction
     {
         private Dictionary<int, int> _hackerProbabilities;
-        public Hacker(string name) : base(name)
+        public Hacker(string name) : base(name, "Hacker")
         {
             _hackerProbabilities = new Dictionary<int, int>()
             {
