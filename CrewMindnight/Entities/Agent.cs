@@ -8,9 +8,6 @@ namespace CrewMindnight.Entities
         {
         }
 
-        public bool PerformAction()
-        {
-            throw new NotImplementedException();
-        }
+        public bool PerformAction(int node) => true;
     }
 }

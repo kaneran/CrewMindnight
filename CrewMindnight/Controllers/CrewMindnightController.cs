@@ -7,16 +7,12 @@ namespace CrewMindnight.Controllers
     [Route("[controller]")]
     public class CrewMindnightController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
         [HttpGet(Name = "Test")]
         public string Get()
         {
             var x = new Agent("SideArms");
-            return x.Name;
+            var y = new Hacker("ShadowBeatz");
+            return y.PerformAction(1).ToString();
         }
     }
 }

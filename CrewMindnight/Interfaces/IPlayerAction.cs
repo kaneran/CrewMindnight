@@ -2,6 +2,6 @@
 {
     public interface IPlayerAction
     {
-        public bool PerformAction();
+        public bool PerformAction(int node);
     }
 }
