@@ -6,5 +6,6 @@ namespace CrewMindnight.DTOs
     {
         public int Node { get; set; }
         public List<Maintenance> Audit { get; set; }
+        public List<Player> Participants { get; set; }
     }
 }

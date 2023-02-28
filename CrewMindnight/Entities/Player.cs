@@ -1,6 +1,8 @@
-﻿namespace CrewMindnight.Entities
+﻿using CrewMindnight.Interfaces;
+
+namespace CrewMindnight.Entities
 {
-    public class Player
+    public class Player : IPlayerAction
     {
         public string Name { get; set; }
         public string Role { get; set; }
@@ -10,5 +12,7 @@
             Name = name;
             Role = role;
         }
+
+        public virtual bool PerformAction(int node) => true;
     }
 }

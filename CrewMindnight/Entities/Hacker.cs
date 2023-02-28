@@ -17,12 +17,12 @@ namespace CrewMindnight.Entities
             };
         }
 
-        public bool PerformAction(int node)
+        public override bool PerformAction(int node)
         {
             var random = new Random();
             var randomNumber = random.Next(1,100);
             var doHackNode = randomNumber <= _hackerProbabilities[node];
-            return doHackNode;
+            return !doHackNode;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace CrewMindnight.Controllers
             _gameService = new GameService();
         }
         [HttpGet(Name = "Test")]
-        public List<Player> CreateGame(string playerName)
+        public List<Player> CreateGame([FromQuery]string playerName)
         {
             var players = _gameService.CreateGame(playerName);
             return players;

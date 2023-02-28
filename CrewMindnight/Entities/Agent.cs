@@ -8,6 +8,6 @@ namespace CrewMindnight.Entities
         {
         }
 
-        public bool PerformAction(int node) => true;
+        public override bool PerformAction(int node) => true;
     }
 }
