@@ -20,8 +20,9 @@ namespace CrewMindnight.Entities
 
         public override bool PerformAction(GameProgress gameProgress)
         {
-            var hackersWon = gameProgress.Audit.Where((node) => node.Outcome == "Hacked").Count() == 2;
-            if (hackersWon)
+            //If there are two hacked nodes, hack and win for the hackers! Or... if there are two secured nodes, then the hacker has no choice but to hack..
+            var perfomHack = gameProgress.Audit.Where(node => node.Outcome == "Hacked").Count() == 2 || gameProgress.Audit.Where(node => node.Outcome == "Secured").Count() == 2;
+            if (perfomHack)
             {
                 return false;
             }
