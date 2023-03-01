@@ -2,8 +2,8 @@
 {
     public class Outcome
     {
-        public int NumberOfHackersDetected;
-        public string Result;
+        public int NumberOfHackersDetected { get; }
+        public string Result { get; }
 
         public Outcome(int numberOfHackerDetected, string result)
         {
