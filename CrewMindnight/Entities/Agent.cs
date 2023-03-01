@@ -1,4 +1,5 @@
-﻿using CrewMindnight.Interfaces;
+﻿using CrewMindnight.DTOs;
+using CrewMindnight.Interfaces;
 
 namespace CrewMindnight.Entities
 {
@@ -8,6 +9,6 @@ namespace CrewMindnight.Entities
         {
         }
 
-        public override bool PerformAction(int node) => true;
+        public override bool PerformAction(GameProgress gameProgress) => true;
     }
 }

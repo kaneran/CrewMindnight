@@ -11,7 +11,7 @@ namespace CrewMindnight.Services
             gameProgress.Participants.ForEach((participant) =>
             {
                 Player player = participant.Role == "Agent" ? new Agent(participant.Name) : new Hacker(participant.Name);
-                var action = player.PerformAction(gameProgress.Node);
+                var action = player.PerformAction(gameProgress);
                 actions.Add(action);
             });
             var numberOfHacksDetected = actions.Where(a => !a).Count();

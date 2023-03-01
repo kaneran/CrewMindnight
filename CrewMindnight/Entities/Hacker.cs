@@ -1,4 +1,5 @@
-﻿using CrewMindnight.Interfaces;
+﻿using CrewMindnight.DTOs;
+using CrewMindnight.Interfaces;
 
 namespace CrewMindnight.Entities
 {
@@ -17,12 +18,21 @@ namespace CrewMindnight.Entities
             };
         }
 
-        public override bool PerformAction(int node)
+        public override bool PerformAction(GameProgress gameProgress)
         {
-            var random = new Random();
-            var randomNumber = random.Next(1,100);
-            var doHackNode = randomNumber <= _hackerProbabilities[node];
-            return !doHackNode;
+            var hackersWon = gameProgress.Audit.Where((node) => node.Outcome == "Hacked").Count() == 2;
+            if (hackersWon)
+            {
+                return false;
+            }
+            else
+            {
+                //Hacker will either hack or secure the node...
+                var random = new Random();
+                var randomNumber = random.Next(1, 100);
+                var doHackNode = randomNumber <= _hackerProbabilities[gameProgress.Node];
+                return !doHackNode;
+            }
         }
     }
 }

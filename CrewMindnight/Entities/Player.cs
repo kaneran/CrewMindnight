@@ -1,4 +1,5 @@
-﻿using CrewMindnight.Interfaces;
+﻿using CrewMindnight.DTOs;
+using CrewMindnight.Interfaces;
 
 namespace CrewMindnight.Entities
 {
@@ -13,6 +14,6 @@ namespace CrewMindnight.Entities
             Role = role;
         }
 
-        public virtual bool PerformAction(int node) => true;
+        public virtual bool PerformAction(GameProgress gameProgress) => true;
     }
 }

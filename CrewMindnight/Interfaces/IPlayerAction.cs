@@ -1,7 +1,9 @@
-﻿namespace CrewMindnight.Interfaces
+﻿using CrewMindnight.DTOs;
+
+namespace CrewMindnight.Interfaces
 {
     public interface IPlayerAction
     {
-        public bool PerformAction(int node);
+        public bool PerformAction(GameProgress gameProgress);
     }
 }
