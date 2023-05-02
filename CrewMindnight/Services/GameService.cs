@@ -43,7 +43,9 @@ namespace CrewMindnight.Services
                 var player = new Hacker(hackerName);
                 players.Add(player);
             });
-
+            //Assign id for each player
+            for (int i = 0; i < players.Count; i++)
+                players[i].Id = i;
             return players;
         }
 

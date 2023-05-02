@@ -8,6 +8,8 @@ namespace CrewMindnight.Entities
         public string Name { get; set; }
         public string Role { get; set; }
 
+        public int Id { get; set; }
+
         public Player(string name, string role)
         {
             Name = name;
