@@ -12,7 +12,7 @@ namespace CrewMindnight.Services
             _players = new List<string>() { "Speedy", "SideArms", "D4", "Shadowbeatz", "TheG18" };
             _random = new Random();
         }
-        public List<Player> CreateGame(string playerName)
+        public IReadOnlyList<Player> CreateGame(string playerName)
         {
             var players = AssignRolesToPlayers(playerName);
             return players;
