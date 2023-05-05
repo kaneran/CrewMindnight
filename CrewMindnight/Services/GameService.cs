@@ -5,11 +5,19 @@ namespace CrewMindnight.Services
     public class GameService
     {
         private List<string> _players;
+        private List<PlayerConfig> _playersConfigs;
         private Random _random;
 
         public GameService()
         {
-            _players = new List<string>() { "Speedy", "SideArms", "D4", "Shadowbeatz", "TheG18" };
+            _players = new List<string>() { "Speedy", "SideArms", "D4", "ShadowBeatz!", "TheG18" };
+            _playersConfigs = new List<PlayerConfig>{
+                new PlayerConfig("Speedy","#4bde6e", "character2"),
+                new PlayerConfig("SideArms","#e303fc", "character4"),
+                new PlayerConfig("D4","#ccc8c8", "character0"),
+                new PlayerConfig("ShadowBeatz!","#071eb3", "character1"),
+                new PlayerConfig("TheG18","#e0a80b", "character3")
+            };
             _random = new Random();
         }
         public IReadOnlyList<Player> CreateGame(string playerName)
@@ -25,6 +33,7 @@ namespace CrewMindnight.Services
             var players = new List<Player>();
 
             agents.Add(playerName);
+            _playersConfigs.Add(new PlayerConfig(playerName, "#e00b1d", "character5"));
 
             //Assign hacker role to two players(agents)
             for (int i = 0; i < 2; i++)
@@ -34,20 +43,25 @@ namespace CrewMindnight.Services
 
             agents.ForEach(agentName =>
             {
-                var player = new Agent(agentName);
+                var player = new Agent(agentName, GetPlayerConfig(agentName));
                 players.Add(player);
             });
 
             hackers.ForEach(hackerName =>
             {
-                var player = new Hacker(hackerName);
+                var player = new Hacker(hackerName, GetPlayerConfig(hackerName));
                 players.Add(player);
             });
             //Assign id for each player
             for (int i = 0; i < players.Count; i++)
+            {
                 players[i].Id = i;
+            }
+
             return players;
         }
+
+        public PlayerConfig GetPlayerConfig(string playerName) => _playersConfigs.Where(pc => pc.PlayerName == playerName).SingleOrDefault();
 
         public void AssignHackerRole(List<string> agents, List<string> hackers)
         {

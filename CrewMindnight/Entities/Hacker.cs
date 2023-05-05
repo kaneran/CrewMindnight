@@ -7,7 +7,7 @@ namespace CrewMindnight.Entities
     {
         private Dictionary<int, int> _hackerProbabilities;
         private Random _random;
-        public Hacker(string name) : base(name, "Hacker")
+        public Hacker(string name, PlayerConfig playerConfig = null) : base(name, "Hacker", playerConfig)
         {
             _hackerProbabilities = new Dictionary<int, int>()
             {

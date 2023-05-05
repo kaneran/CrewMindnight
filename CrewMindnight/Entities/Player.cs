@@ -7,13 +7,15 @@ namespace CrewMindnight.Entities
     {
         public string Name { get; set; }
         public string Role { get; set; }
+        public PlayerConfig PlayerConfig { get; set; }
 
         public int Id { get; set; }
 
-        public Player(string name, string role)
+        public Player(string name, string role, PlayerConfig playerConfig)
         {
             Name = name;
             Role = role;
+            PlayerConfig = playerConfig;
         }
 
         public virtual bool PerformAction(GameProgress gameProgress) => true;

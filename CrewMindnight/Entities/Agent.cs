@@ -5,7 +5,7 @@ namespace CrewMindnight.Entities
 {
     public class Agent : Player , IPlayerAction
     {
-        public Agent(string name) : base(name, "Agent")
+        public Agent(string name, PlayerConfig playerConfig = null) : base(name, "Agent", playerConfig)
         {
         }
 
