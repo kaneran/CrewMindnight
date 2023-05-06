@@ -1,3 +1,4 @@
+using CrewMindnight.DTOs;
 using CrewMindnight.Entities;
 using CrewMindnight.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,10 @@ namespace CrewMindnight.Controllers
             _gameService = new GameService();
         }
         [HttpGet(Name = "Test")]
-        public IReadOnlyList<Player> CreateGame([FromQuery]string playerName)
+        public GameSetup CreateGame([FromQuery]string playerName)
         {
-            var players = _gameService.CreateGame(playerName);
-            return players;
+            var gameSetup = _gameService.CreateGame(playerName);
+            return gameSetup;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CrewMindnight.Entities;
+﻿using CrewMindnight.DTOs;
+using CrewMindnight.Entities;
 
 namespace CrewMindnight.Services
 {
@@ -6,6 +7,7 @@ namespace CrewMindnight.Services
     {
         private List<string> _players;
         private List<PlayerConfig> _playersConfigs;
+        private List<Node> _nodes;
         private Random _random;
 
         public GameService()
@@ -18,12 +20,21 @@ namespace CrewMindnight.Services
                 new PlayerConfig("ShadowBeatz!","#071eb3", "character1"),
                 new PlayerConfig("TheG18","#e0a80b", "character3")
             };
+            _nodes = new List<Node>
+            {
+                new Node(1, 2),
+                new Node(2, 3),
+                new Node(3, 4),
+                new Node(4, 3),
+                new Node(5, 4)
+            };
             _random = new Random();
         }
-        public IReadOnlyList<Player> CreateGame(string playerName)
+        public GameSetup CreateGame(string playerName)
         {
             var players = AssignRolesToPlayers(playerName);
-            return players;
+            var gameSetup = new GameSetup(players, _nodes);
+            return gameSetup;
         }
 
         public List<Player> AssignRolesToPlayers(string playerName)
