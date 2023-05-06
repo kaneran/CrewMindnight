@@ -17,7 +17,7 @@ namespace CrewMindnight.Services
                 new PlayerConfig("Speedy","#4bde6e", "character2"),
                 new PlayerConfig("SideArms","#e303fc", "character4"),
                 new PlayerConfig("D4","#ccc8c8", "character0"),
-                new PlayerConfig("ShadowBeatz!","#071eb3", "character1"),
+                new PlayerConfig("ShadowBeatz!","#077eed", "character1"),
                 new PlayerConfig("TheG18","#e0a80b", "character3")
             };
             _nodes = new List<Node>
