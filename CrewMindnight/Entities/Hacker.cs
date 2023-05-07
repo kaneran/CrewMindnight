@@ -23,7 +23,7 @@ namespace CrewMindnight.Entities
         public override bool PerformAction(GameProgress gameProgress)
         {
             //If there are two hacked nodes, hack and win for the hackers!
-            if (gameProgress.Audit.Where(node => node.Outcome == "Hacked").Count() == 2)
+            if (gameProgress.Audit.Where(node => node.Result == "Hacked").Count() == 2)
             {
                 return false;
             }
@@ -35,7 +35,7 @@ namespace CrewMindnight.Entities
             }
 
             //If there are two secured nodes, then the hacker has no choice but to hack..
-            else if(gameProgress.Audit.Where(node => node.Outcome == "Secured").Count() == 2)
+            else if(gameProgress.Audit.Where(node => node.Result == "Secured").Count() == 2)
             {
                 return false;
             }

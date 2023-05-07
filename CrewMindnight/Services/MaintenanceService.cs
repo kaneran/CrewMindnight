@@ -16,7 +16,7 @@ namespace CrewMindnight.Services
             });
             var numberOfHacksDetected = actions.Where(a => !a).Count();
             var result = numberOfHacksDetected > 0 ? "Hacked" : "Secured";
-            return new Outcome(numberOfHacksDetected, result);
+            return new Outcome(numberOfHacksDetected, result, gameProgress.Node, gameProgress.Participants.Select(p => p.Name).ToList());
         }
     }
 }
