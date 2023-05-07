@@ -15,7 +15,7 @@ namespace CrewMindnight.Controllers
             _maintenanceService = new MaintenanceService();
         }
 
-        [HttpGet(Name = "Maintenance")]
+        [HttpPost(Name = "Maintenance")]
         public Outcome PerformMaintenance([FromBody] GameProgress gameProgress)
         {
             return _maintenanceService.PerformMaintenance(gameProgress);
