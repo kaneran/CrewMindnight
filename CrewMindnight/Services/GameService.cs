@@ -44,7 +44,7 @@ namespace CrewMindnight.Services
             var players = new List<Player>();
 
             agents.Add(playerName);
-            _playersConfigs.Add(new PlayerConfig(playerName, "#e00b1d", "character5"));
+            _playersConfigs.Add(new PlayerConfig(playerName, "#118b83", "character5"));
 
             //Assign hacker role to two players(agents)
             for (int i = 0; i < 2; i++)
