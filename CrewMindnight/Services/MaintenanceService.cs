@@ -10,7 +10,7 @@ namespace CrewMindnight.Services
             var actions = new List<bool>();
             gameProgress.Participants.ForEach((participant) =>
             {
-                Player player = participant.Role == "Agent" ? new Agent(participant.Name) : new Hacker(participant.Name);
+                Player player = participant.Role is "Agent" ? new Agent(participant.Name) : new Hacker(participant.Name);
                 var action = player.PerformAction(gameProgress);
                 actions.Add(action);
             });

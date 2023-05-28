@@ -1,6 +1,6 @@
 ﻿namespace CrewMindnight.DTOs
 {
-    public class Outcome
+    public record Outcome
     {
         public int Node { get; set; }
         public int NumberOfHackersDetected { get; set; }

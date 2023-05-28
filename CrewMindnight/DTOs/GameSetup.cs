@@ -2,7 +2,7 @@
 
 namespace CrewMindnight.DTOs
 {
-    public class GameSetup
+    public record GameSetup
     {
         public List<Player> Players { get; set; }
         public List<Node> Nodes { get; set; }

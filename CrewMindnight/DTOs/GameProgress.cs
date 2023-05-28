@@ -2,7 +2,7 @@
 
 namespace CrewMindnight.DTOs
 {
-    public class GameProgress
+    public record GameProgress
     {
         public int Node { get; set; }
         public List<Outcome> Audit { get; set; }

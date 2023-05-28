@@ -23,19 +23,19 @@ namespace CrewMindnight.Entities
         public override bool PerformAction(GameProgress gameProgress)
         {
             //If there are two hacked nodes, hack and win for the hackers!
-            if (gameProgress.Audit.Where(node => node.Result == "Hacked").Count() == 2)
+            if (gameProgress.Audit.Where(node => node.Result is "Hacked").Count() is 2)
             {
                 return false;
             }
 
             //If there's two hackers in the node then decrease the likelihood (65%) of them hacking to prevent two hackers detected 
-            else if(gameProgress.Participants.Where(participant => participant.Role == "Hacker").Count() == 2)
+            else if(gameProgress.Participants.Where(participant => participant.Role is "Hacker").Count() is 2)
             {
                 return DecideAction(65);
             }
 
             //If there are two secured nodes, then the hacker has no choice but to hack..
-            else if(gameProgress.Audit.Where(node => node.Result == "Secured").Count() == 2)
+            else if(gameProgress.Audit.Where(node => node.Result is "Secured").Count() is 2)
             {
                 return false;
             }
@@ -50,7 +50,7 @@ namespace CrewMindnight.Entities
         {
             var randomNumber = _random.Next(1, 100);
             //Increase the odds of the player, by 10%, hacking the node if player is Shadowbeatz or TheG18 cause they're known to be risky and hack
-            var doHackNode = randomNumber <= probability + (this.Name == "ShadowBeatz" || this.Name == "TheG18" ? 10 : 0);
+            var doHackNode = randomNumber <= probability + (this.Name is ("ShadowBeatz" or "TheG18") ? 10 : 0);
             return !doHackNode;
         }
     }
